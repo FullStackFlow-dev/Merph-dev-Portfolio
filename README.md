@@ -1,6 +1,6 @@
 #  MerphDev — Learning, Certifications & Projects
 
-> **Merphy Mademba** — Full Stack | Cybersécurité | DevOps | Data | IA
+> **Merphy Mademba** — Développeur & Ingénieur Logiciel méta | Sécurité | DevOps | Data | IA
 > Dakar, Sénégal — [LinkedIn](https://www.linkedin.com/in/merph-dev) | [GitHub](https://github.com/FullStackFlow-dev)
 
 ---
