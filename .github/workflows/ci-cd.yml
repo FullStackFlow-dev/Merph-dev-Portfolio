@@ -1,4 +1,4 @@
-name: 🚀 MerphDev — CI/CD Pipeline
+name: 🚀 MerphDev — Pipeline CI/CD
 
 on:
   push:
@@ -6,12 +6,12 @@ on:
   pull_request:
     branches: [main]
   schedule:
-    - cron: '0 0 * * 1'       # Chaque lundi à minuit — vérification hebdomadaire
+    - cron: '0 0 * * 1'        # Every Monday at midnight — weekly check
 
 jobs:
-  # ─── JOB 1 : VALIDATION DE LA STRUCTURE ───
+  # ─── JOB 1: STRUCTURE VALIDATION ───
   validate:
-    name: ✅ Validate Project Structure
+    name: ✅ Validate project structure
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -19,7 +19,7 @@ jobs:
 
       - name: Check required files exist
         run: |
-          echo "Vérification de la structure du projet..."
+          echo "Checking project structure..."
           required_files=(
             "README.md"
             "learning-paths/cybersecurity.md"
@@ -28,7 +28,7 @@ jobs:
             "learning-paths/web-fullstack.md"
             "learning-paths/git-github.md"
             "certifications/README.md"
-            "notebooks/README.md"
+            "notes/README.md"
             "models/README.md"
             "docs/ROADMAP.md"
           )
@@ -42,39 +42,39 @@ jobs:
             fi
           done
           if [ "$all_ok" = false ]; then
-            echo "❌ Validation échouée — fichiers manquants"
+            echo "❌ Validation failed — missing files"
             exit 1
           fi
-          echo "✅ Toute la structure est valide"
+          echo "✅ All structure is valid"
 
       - name: Validate Markdown syntax
-        uses: markdownlint/markdownlint@v0.34.0
+        uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           args: --config .markdownlint.json .
         continue-on-error: true
 
-  # ─── JOB 2 : VÉRIFICATION DES LIENS ───
+  # ─── JOB 2: LINK CHECKING ───
   check-links:
-    name: 🔗 Check External Links
+    name: 🔗 Check external links
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Install linkcheck tool
+      - name: Install link checking tool
         run: npm install -g markdown-link-check
 
-      - name: Check links in all markdown files
+      - name: Check links in all Markdown files
         run: |
-          echo "Vérification des liens externes..."
+          echo "Checking external links..."
           find . -name "*.md" -not -path "./node_modules/*" | while read file; do
             echo "─── Checking: $file ───"
             markdown-link-check "$file" --config .linkcheck.json || true
           done
 
-  # ─── JOB 3 : GÉNÉRATION DU RAPPORT ───
+  # ─── JOB 3: REPORT GENERATION ───
   report:
-    name: 📊 Generate Progress Report
+    name: 📊 Generate progress report
     runs-on: ubuntu-latest
     needs: validate
     steps:
@@ -91,24 +91,20 @@ jobs:
           python3 << 'EOF'
           import os, json
           from datetime import datetime
-
           report = {
               "generated_at": datetime.now().isoformat(),
-              "project": "MerphDev Learning & Certifications",
-              "stats": {}
+              "project": "MerphDev Learning and Certifications",
+              "statistics": {}
           }
-
-          # Count markdown files per directory
-          dirs_to_scan = ["learning-paths", "certifications", "notebooks", "models", "docs"]
+          # Count Markdown files per directory
+          dirs_to_scan = ["learning-paths", "certifications", "notes", "models", "docs"]
           for d in dirs_to_scan:
               if os.path.exists(d):
                   md_files = [f for f in os.listdir(d) if f.endswith('.md')]
-                  report["stats"][d] = len(md_files)
-
+                  report["statistics"][d] = len(md_files)
           with open("docs/latest-report.json", "w") as f:
               json.dump(report, f, indent=2)
-
-          print("✅ Rapport généré:", json.dumps(report, indent=2))
+          print("✅ Report generated:", json.dumps(report, indent=2))
           EOF
 
       - name: Upload report as artifact
@@ -117,7 +113,7 @@ jobs:
           name: progress-report
           path: docs/latest-report.json
 
-  # ─── JOB 4 : DÉPLOIEMENT ───
+  # ─── JOB 4: DEPLOYMENT ───
   deploy:
     name: 🚀 Deploy to GitHub Pages
     runs-on: ubuntu-latest
