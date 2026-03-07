@@ -1,7 +1,18 @@
-#  Merph-Dev — Learning, Certifications & Projects
 
-> **Merphy Mademb** — Développeur & Ingénieur Logiciel méta | DevOps - Sécurité | Data & IA |
-> Dakar, Sénégal — [LinkedIn](https://www.linkedin.com/in/merph-dev) | [GitHub](https://github.com/FullStackFlow-dev)
+# Merphy Mademba — Alias (Merph-dev)
+**Développeur & Ingénieur Logiciel méta | DevOps - Sécurité | Data & IA |
+ Dakar, Sénégal** — [LinkedIn](https://www.linkedin.com/in/merph-dev) | [GitHub](https://github.com/FullStackFlow-dev)
+---
+
+Autodidacte depuis plusieurs années, j'ai commencé par le développement web Full Stack avant d'élargir progressivement mon profil vers des domaines plus techniques et transversaux. Certifié par IBM (DevOps & Génie Logiciel), Meta (Front-end, Back-end, Mobile Android, Database Engineering) et Google (Analyse de données), j'ai construit une base solide qui va bien au-delà du simple code. En parallèle, je me forme activement en Data — Data Analyst, Data Scientist, Big Data, et Database Administrator — via des formations solides sur DataCamp et Cognetive.io, et je me mesure à la communauté mondiale à travers des compétitions Kaggle en Data Science, Analyse, Architecture et Administration de données. Du côté sécurité, je me forme également en cybersécurité — sécurité logicielle, SOC, et tests de pénétration — à travers des parcours pratiques sur TryHackMe et des préparations aux certifications CompTIA A+ et Security+. Ma conviction est simple : dans un monde transformé par l'IA, maîtriser les fondations — systèmes, données, sécurité — est ce qui distingue un bon développeur d'un ingénieur complet.
+
+Ma vision se concrétise à travers des projets réels. ArtéNova Shop, ma vitrine principale, est une plateforme e-commerce Full Stack combinant authentification sécurisée, intégration de paiements et architecture production déployée en CI/CD sur Vercel. J'explore aussi l'IA appliquée via une gateway multi-modèles LLM, la sécurité via un scanner de vulnérabilités réseau sous Kali Linux, et le machine learning avec un modèle de détection de fraudes. Basé à Dakar, Sénégal, et ouvert aux opportunités, je cherche à construire des solutions qui sont à la fois sécurisées, performantes et intelligentes.
+
+---
+
+
+# Learning, Certifications & Projects
+
 
 ---
 
