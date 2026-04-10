@@ -161,7 +161,6 @@ EOF
           name: progress-report
           path: docs/latest-report.json
 
-
 # ─── JOB 4 ───
   deploy:
 
@@ -182,4 +181,4 @@ EOF
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./docs
-          publish_branch: gh-pages  
+          publish_branch: gh-pages
